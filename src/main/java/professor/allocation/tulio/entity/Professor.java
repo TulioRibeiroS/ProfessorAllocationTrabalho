@@ -1,6 +1,6 @@
 package professor.allocation.tulio.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -41,7 +41,7 @@ public class Professor {
 	Department department;
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@OneToMany(mappedBy = "professor")
-	Set<Allocation> allocations;
+	List<Allocation> allocations;
 	
 	
 }

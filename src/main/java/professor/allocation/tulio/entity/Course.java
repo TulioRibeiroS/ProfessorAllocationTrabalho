@@ -1,6 +1,6 @@
 package professor.allocation.tulio.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Course {
 
 	@Id
@@ -30,5 +29,5 @@ public class Course {
 	
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@OneToMany(mappedBy = "course")
-	Set<Allocation> allocations;
+	List<Allocation> allocations;
 }
