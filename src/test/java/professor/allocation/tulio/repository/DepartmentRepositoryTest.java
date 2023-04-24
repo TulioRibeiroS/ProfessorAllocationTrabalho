@@ -1,5 +1,7 @@
 package professor.allocation.tulio.repository;
 
+import static org.mockito.ArgumentMatchers.anyInt;
+
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -20,62 +22,58 @@ public class DepartmentRepositoryTest {
 
 	@Autowired
 	DepartmentRepository departmentRepository;
-	
+
 	@Test
 	public void save_create() {
 		// Arrange
 		Department department = new Department();
 		department.setId(null);
 		department.setName("Department teste");
-		
+
 		// ACT
 		department = departmentRepository.save(department);
-		
+
 		// Print
 		System.out.println(department);
 	}
-	
+
 	@Test
 	public void findAll() {
 		// Act
 		List<Department> departments = departmentRepository.findAll();
-		
+
 		// Print
 		departments.forEach(System.out::println);
 	}
-	
+
 	@Test
 	public void save_update() {
 		// Arrange
 		Department department = new Department();
 		department.setId(1);
 		department.setName("Qualquer um outro");
-		
+
 		// Act
 		department = departmentRepository.save(department);
-		
+
 		// Print
 		System.out.println(department);
 	}
-	
+
 	@Test
 	public void findById() {
-		// Arrange
-		Long id = 1L;
-		
+
 		// Act
-		Department department = departmentRepository.findById(id).orElse(null);
-		
+		Department department = departmentRepository.findById(anyInt()).orElse(null);
+
 		// Print
 		System.out.println(department);
 	}
-	
+
 	@Test
 	public void deleteById() {
-		// Arrange
-		Long id = 1L;
-		
+
 		// Act
-		departmentRepository.deleteById(id);
+		departmentRepository.deleteById(anyInt());
 	}
 }

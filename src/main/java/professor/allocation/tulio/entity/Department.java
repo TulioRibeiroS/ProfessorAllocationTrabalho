@@ -13,9 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Table
 @Entity
@@ -23,12 +21,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Department {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Integer id;
 	String name;
-	
+
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@OneToMany(mappedBy = "department")
 	List<Professor> professor;
@@ -56,10 +54,9 @@ public class Department {
 	public void setProfessor(List<Professor> professor) {
 		this.professor = professor;
 	}
-	
+
 //	@OnDelete(action = OnDeleteAction.CASCADE)
 //	@OneToMany(mappedBy = "department")
 //	List<Department> department;
-	
-	
+
 }
